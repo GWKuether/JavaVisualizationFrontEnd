@@ -1,5 +1,19 @@
 import React, { useEffect, useState } from 'react';
 const DisplaySearchResults = (props) => {
+    const [displayCount, setDisplayCount]= useState(5)
+
+    function addDisplay(){
+        let count = displayCount + 5
+        setDisplayCount(count)
+    }
+
+    function subDisplay(){
+        let count = displayCount - 5
+        if(displayCount == 0){
+            return true;
+        }
+        setDisplayCount(count)
+    }
 
     return (
         <div>
@@ -18,8 +32,8 @@ const DisplaySearchResults = (props) => {
               </tr>
             </thead>
             <tbody>
-              {props.games.map((game) => {
-                return (
+              {props.games.map((game,index) => {
+                if (index < displayCount){return (
                   <tr>
                     <td>
                       {game.game_rank}
@@ -50,10 +64,13 @@ const DisplaySearchResults = (props) => {
                     </td>
                     
                   </tr>
-                )
+                )}
+                
               })}
             </tbody>
           </table>
+          <button onClick={addDisplay}>See More</button>
+          <button onClick={subDisplay}>See Less</button>
         </div>
   
        );

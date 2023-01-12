@@ -36,14 +36,14 @@ const GameSearch = (props) => {
             console.log(results)
         }
     }
-
-
-    
+ 
     return (
         <div>
-            <form onSubmit={handleSubmit} className='margin-bottom'>
-                <input type='text' placeholder='Search here' onChange={handleSearch} value={searchInput} />
-            </form>
+            <nav>
+                <form onSubmit={handleSubmit} className='margin-bottom'>
+                    <input type='text' placeholder='Search here' onChange={handleSearch} value={searchInput} />
+                </form>
+            </nav>
 
             <div>
                 <DisplaySearchResults games = {gamesearch}/>
