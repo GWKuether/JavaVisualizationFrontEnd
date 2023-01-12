@@ -1,11 +1,13 @@
 import axios from "axios"
 import React, { useState, useEffect } from 'react';
+import DisplaySearchResults from "../DisplaySearchResults/DisplaySearchResults";
 
 
 const GameSearch = (props) => {
     
     const[searchInput, setSearchInput] = useState('')
-    const[games, setGames] = useState('')
+    const[games, setGames] = useState([])
+    const[gamesearch, setGamesearch] = useState([])
 
     useEffect(() => {
         GetAllGames();
@@ -13,7 +15,6 @@ const GameSearch = (props) => {
 
     async function GetAllGames(){
         let response = await axios.get('http://localhost:8080/all')
-        console.log(response.data)
         setGames(response.data)
     }          
 
@@ -31,6 +32,7 @@ const GameSearch = (props) => {
                 }
                 
             })
+            setGamesearch(results)
             console.log(results)
         }
     }
@@ -38,9 +40,16 @@ const GameSearch = (props) => {
 
     
     return (
-        <form onSubmit={handleSubmit} className='margin-bottom'>
-            <input type='text' placeholder='Search here' onChange={handleSearch} value={searchInput} />
-        </form>
+        <div>
+            <form onSubmit={handleSubmit} className='margin-bottom'>
+                <input type='text' placeholder='Search here' onChange={handleSearch} value={searchInput} />
+            </form>
+
+            <div>
+                <DisplaySearchResults games = {gamesearch}/>
+            </div>
+
+        </div>
 
      );
 }
