@@ -21,17 +21,17 @@ const GlobalSalesChart = (props) => {
         let formattedData = Object.entries(data).map(([key,value])=>{
           console.log("Key: ", key, " Value: ", value)
           
-          return([key, value, "#b87333"])
+          return([key, value, "#4A4E69"])
           
         })
         console.log(formattedData)
-        setChartData([["Platform", "Sales", { role: "style" }], ...formattedData])
+        setChartData([["Platform", "Sales in millions", { role: "style" }], ...formattedData])
     }
 
 
 
     return ( 
-      <div>
+      <div style={{backgroundColor: "white"}}>
         <h3>Global Sales Chart</h3>
         <Chart chartType="ColumnChart" width="100%" height="400px" data={chartData} />
       </div>

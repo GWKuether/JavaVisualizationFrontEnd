@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 import axios from "axios";
 
+
+
 const GenreSales = (props) => {
   const[chartData,setChartData] = useState([])
   
@@ -22,19 +24,19 @@ const GenreSales = (props) => {
         let formattedData = Object.entries(data).map(([key,value])=>{
           console.log("Key: ", key, " Value: ", value)
           
-          return([key, value, "#14213d"])
+          return([key, value, "#22223B"])
           
         })
         console.log(formattedData)
-        setChartData([["Genre", "Sales", { role: "style" }], ...formattedData])
+        setChartData([["Genre", "Sales in millions", { role: "style" }], ...formattedData])
     }
 
 
 
     return ( 
-      <div>
+      <div style={{backgroundColor: "white"}}>
         <h3>The chart below displays which Genre sold most since 2003</h3>
-        <Chart chartType="ColumnChart" width="100%" height="400px" data={chartData} />
+        <Chart className='table-color' chartType="ColumnChart" width="100%" height="400px" data={chartData} />
       </div>
      );
 }

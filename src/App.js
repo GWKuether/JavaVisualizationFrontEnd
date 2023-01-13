@@ -1,11 +1,13 @@
 import GlobalSalesChart from './Component/GlobalSalesChart/GlobalSalesChart';
-import './App.css';
 import GameSearch from './Component/GameSearch/GameSearch';
 import GenreSales from './Component/GenreSales/GenreSales';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
+
 
 function App() {
   return (
-    <div>
+    <div className='main-background'>
       <GameSearch />
       <GlobalSalesChart />
       <GenreSales/>
