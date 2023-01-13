@@ -31,12 +31,12 @@ const GenreSales = (props) => {
         setChartData([["Genre", "Sales in millions", { role: "style" }], ...formattedData])
     }
 
-
+    Chart.draw()
 
     return ( 
       <div style={{backgroundColor: "white"}}>
         <h3>The chart below displays which Genre sold most since 2003</h3>
-        <Chart className='table-color' chartType="ColumnChart" width="100%" height="400px" data={chartData} />
+        <Chart chartType="ColumnChart" width="100%" height="400px" data={chartData} />
       </div>
      );
 }
