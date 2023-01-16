@@ -31,7 +31,7 @@ const GenreSales = (props) => {
         setChartData([["Genre", "Sales in millions", { role: "style" }], ...formattedData])
     }
 
-    Chart.draw()
+    
 
     return ( 
       <div style={{backgroundColor: "white"}}>
